@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>+1.000 Moldes de Feltro + Calculadora de Precificação</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1637424637557230');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1637424637557230&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
 
   <style>
     :root {
@@ -17,290 +39,784 @@
       --verde-check: #22c55e;
     }
 
-    * { font-family: 'Poppins', sans-serif; box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    body { background: var(--bege); color: #333; overflow-x: hidden; }
+    body {
+      background: var(--bege);
+      color: #333;
+      overflow-x: hidden;
+    }
 
     /* FAIXA */
     .faixa-urgencia {
-      width: 100%; background: var(--rosa); color: #fff;
-      text-align: center; padding: 7px 16px;
-      font-size: 13px; font-weight: 600; letter-spacing: 0.3px;
+      width: 100%;
+      background: var(--rosa);
+      color: #fff;
+      text-align: center;
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
     }
 
     /* BOTÕES */
     .btn-cta {
-      display: inline-block; background: var(--rosa); color: #fff;
-      border: none; border-radius: 50px; padding: 16px 36px;
-      font-weight: 700; font-size: 17px; cursor: pointer;
-      text-decoration: none; text-align: center;
+      display: inline-block;
+      background: var(--rosa);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 16px 36px;
+      font-weight: 700;
+      font-size: 17px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
       font-family: 'Poppins', sans-serif;
       transition: background 0.2s ease, transform 0.2s ease;
     }
-    .btn-cta:hover { background: #a82f54; }
 
-    .btn-pulse { animation: pulse-glow 2.2s ease-in-out infinite; }
-
-    @keyframes pulse-glow {
-      0%   { box-shadow: 0 0 0 0 rgba(194,56,100,0.5); transform: scale(1); }
-      50%  { box-shadow: 0 0 18px 8px rgba(194,56,100,0.25); transform: scale(1.03); }
-      100% { box-shadow: 0 0 0 0 rgba(194,56,100,0); transform: scale(1); }
+    .btn-cta:hover {
+      background: #a82f54;
     }
 
-    .seta-bounce { animation: bounce-arrow 1.2s ease-in-out infinite; }
+    .btn-pulse {
+      animation: pulse-glow 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(194, 56, 100, 0.5);
+        transform: scale(1);
+      }
+
+      50% {
+        box-shadow: 0 0 18px 8px rgba(194, 56, 100, 0.25);
+        transform: scale(1.03);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(194, 56, 100, 0);
+        transform: scale(1);
+      }
+    }
+
+    .seta-bounce {
+      animation: bounce-arrow 1.2s ease-in-out infinite;
+    }
 
     @keyframes bounce-arrow {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(8px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(8px);
+      }
     }
 
     @keyframes pulse-scale {
-      0%   { transform: scale(1); }
-      50%  { transform: scale(1.03); }
-      100% { transform: scale(1); }
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.03);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
 
     @keyframes shine-pass {
-      0%   { left: -75%; }
-      60%  { left: 125%; }
-      100% { left: 125%; }
+      0% {
+        left: -75%;
+      }
+
+      60% {
+        left: 125%;
+      }
+
+      100% {
+        left: 125%;
+      }
     }
 
     @keyframes pulse-glow-white {
-      0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.5); transform: scale(1); }
-      50%  { box-shadow: 0 0 18px 8px rgba(255,255,255,0.25); transform: scale(1.03); }
-      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); transform: scale(1); }
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+        transform: scale(1);
+      }
+
+      50% {
+        box-shadow: 0 0 18px 8px rgba(255, 255, 255, 0.25);
+        transform: scale(1.03);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        transform: scale(1);
+      }
     }
 
     /* SEÇÕES */
-    section { padding: 70px 20px; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
+    section {
+      padding: 70px 20px;
+    }
 
-    h2 { font-size: 30px; font-weight: 800; text-align: center; margin-bottom: 40px; color: #222; }
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #222;
+    }
 
     /* HERO */
-    .hero { background: #ffffff; padding: 28px 20px 32px; }
-    .hero-inner {
-      max-width: 800px; margin: 0 auto; text-align: center;
-      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    .hero {
+      background: #ffffff;
+      padding: 28px 20px 32px;
     }
-    .hero h1 { font-size: 32px; font-weight: 400; color: #333333; line-height: 1.25; }
-    .hero h1 strong { font-weight: 800; color: var(--rosa); }
 
-    .hero-img { max-width: 480px; width: 100%; border-radius: 16px; display: block; }
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 400;
+      color: #333333;
+      line-height: 1.25;
+    }
+
+    .hero h1 strong {
+      font-weight: 800;
+      color: var(--rosa);
+    }
+
+    .hero-img {
+      max-width: 480px;
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+    }
 
     .hero-subtitle {
-      font-size: 15px; color: #555; font-weight: 400;
-      line-height: 1.6; max-width: 680px;
+      font-size: 15px;
+      color: #555;
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 680px;
     }
 
-    .btn-hero-shine { position: relative; overflow: hidden; }
-    .btn-hero-shine.btn-pulse { animation: pulse-scale 2.2s ease-in-out infinite; }
+    .btn-hero-shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-hero-shine.btn-pulse {
+      animation: pulse-scale 2.2s ease-in-out infinite;
+    }
+
     .btn-hero-shine::after {
-      content: ''; position: absolute; top: 0; left: -75%;
-      width: 50%; height: 100%;
-      background: linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.35) 50%,rgba(255,255,255,0) 100%);
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0) 100%);
       animation: shine-pass 2.8s ease-in-out infinite;
     }
 
     /* CARROSSEL */
-    .carrossel { background: #FFFFFF; padding: 70px 0; }
-    .carrossel h2 { padding: 0 20px; max-width: 800px; margin: 0 auto 40px; }
-    .carousel-wrapper { overflow: hidden; }
+    .carrossel {
+      background: #FFFFFF;
+      padding: 70px 0;
+    }
+
+    .carrossel h2 {
+      padding: 0 20px;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    .carousel-wrapper {
+      overflow: hidden;
+    }
+
     .carousel-track {
-      display: flex; gap: 16px;
+      display: flex;
+      gap: 16px;
       animation: scroll-carousel 40s linear infinite;
       width: max-content;
     }
-    .carousel-track:hover { animation-play-state: paused; }
+
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
 
     @keyframes scroll-carousel {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     .carousel-card {
-      width: 600px; height: 849px; flex-shrink: 0;
-      border-radius: 12px; overflow: hidden;
+      width: 600px;
+      height: 849px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      overflow: hidden;
     }
-    .carousel-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .carousel-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     /* BENEFÍCIOS */
-    .beneficios { background: #ffffff; }
+    .beneficios {
+      background: #ffffff;
+    }
+
     .beneficios-grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 20px; max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
+
     .beneficio-card {
-      background: #fff; border-radius: 14px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
-      padding: 28px; text-align: center;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+      padding: 28px;
+      text-align: center;
     }
-    .beneficio-icon { font-size: 48px; margin-bottom: 14px; display: block; }
-    .beneficio-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #222; }
-    .beneficio-card p  { font-size: 14px; color: #555; line-height: 1.6; }
+
+    .beneficio-icon {
+      font-size: 48px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .beneficio-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .beneficio-card p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
 
     /* IDEAL */
-    .ideal { background: #F5F5F5; }
-    .ideal-lista { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-    .ideal-item {
-      background: #fff; border-radius: 12px; padding: 18px 22px;
-      display: flex; align-items: center; gap: 14px;
-      font-size: 15px; font-weight: 500; color: #333;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    .ideal {
+      background: #F5F5F5;
     }
-    .ideal-item .check-icon { color: var(--rosa); font-size: 20px; flex-shrink: 0; }
+
+    .ideal-lista {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ideal-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #333;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .ideal-item .check-icon {
+      color: var(--rosa);
+      font-size: 20px;
+      flex-shrink: 0;
+    }
 
     /* DEPOIMENTOS */
-    .depoimentos { background: var(--branco); }
+    .depoimentos {
+      background: var(--branco);
+    }
+
     .depoimentos-grid {
-      display: grid; grid-template-columns: repeat(2,1fr);
-      gap: 24px; max-width: 1000px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
+
     .depoimento-card {
-      background: #fff; border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      padding: 24px; display: flex; flex-direction: column; gap: 14px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
-    .depoimento-header { display: flex; align-items: center; gap: 14px; }
-    .depoimento-info   { display: flex; flex-direction: column; gap: 2px; }
-    .depoimento-nome   { font-weight: 700; font-size: 14px; color: #222; }
-    .depoimento-meta   { font-size: 12px; color: #999; }
+
+    .depoimento-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .depoimento-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .depoimento-nome {
+      font-weight: 700;
+      font-size: 14px;
+      color: #222;
+    }
+
+    .depoimento-meta {
+      font-size: 12px;
+      color: #999;
+    }
+
     .depoimento-foto-ph {
-      width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
-      border: 3px solid var(--bege); object-fit: cover; display: block;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 3px solid var(--bege);
+      object-fit: cover;
+      display: block;
     }
-    .depoimento-aspas { font-size: 14px; color: #555; line-height: 1.7; font-style: italic; }
+
+    .depoimento-aspas {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
     .depoimento-aspas::before {
-      content: '"'; font-size: 32px; color: var(--rosa);
-      line-height: 0; vertical-align: -12px; margin-right: 4px;
+      content: '"';
+      font-size: 32px;
+      color: var(--rosa);
+      line-height: 0;
+      vertical-align: -12px;
+      margin-right: 4px;
     }
 
     /* RECEBER */
-    .receber { background: #F5F5F5; }
+    .receber {
+      background: #F5F5F5;
+    }
 
     /* BÔNUS */
-    .bonus { background: #ffffff; padding-top: 36px; }
+    .bonus {
+      background: #ffffff;
+      padding-top: 36px;
+    }
+
     .bonus-subtitle {
-      text-align: center; font-size: 17px; color: #555;
-      margin-top: -20px; margin-bottom: 16px; font-weight: 500;
+      text-align: center;
+      font-size: 17px;
+      color: #555;
+      margin-top: -20px;
+      margin-bottom: 16px;
+      font-weight: 500;
     }
+
     .bonus-grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 22px; max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
+
     .bonus-card {
-      background: #fff; border-radius: 14px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.09);
-      overflow: hidden; display: flex; flex-direction: column;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
       border: 1px solid #eee;
     }
+
     .bonus-badge {
-      background: var(--rosa); color: #fff;
-      font-size: 12px; font-weight: 700;
-      text-align: center; padding: 8px 10px; letter-spacing: 0.5px;
+      background: var(--rosa);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      padding: 8px 10px;
+      letter-spacing: 0.5px;
     }
+
     .bonus-img-ph {
-      width: 100%; height: 180px;
-      background: linear-gradient(135deg,#f9e0ea,#f5c4d8);
-      display: flex; align-items: center; justify-content: center;
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, #f9e0ea, #f5c4d8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 56px;
     }
-    .bonus-card-body { padding: 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-    .bonus-card h3  { font-size: 15px; font-weight: 700; color: #222; }
-    .bonus-card p   { font-size: 13px; color: #666; line-height: 1.6; flex: 1; }
-    .bonus-preco    { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
-    .bonus-de       { text-decoration: line-through; color: #e00000; font-size: 13px; }
-    .bonus-gratis   { background: var(--verde-check); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 50px; }
+
+    .bonus-card-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .bonus-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .bonus-card p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .bonus-preco {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .bonus-de {
+      text-decoration: line-through;
+      color: #e00000;
+      font-size: 13px;
+    }
+
+    .bonus-gratis {
+      background: var(--verde-check);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
 
     /* PLANOS */
-    .planos { background: #ffffff; padding: 0 0 70px; }
+    .planos {
+      background: #ffffff;
+      padding: 0 0 70px;
+    }
+
     .planos-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 28px; max-width: 900px;
-      margin: 0 auto 28px; align-items: start; padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 900px;
+      margin: 0 auto 28px;
+      align-items: start;
+      padding: 0 20px;
     }
+
     .plano-card {
-      background: #fff; border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      overflow: hidden; display: flex; flex-direction: column;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
-    .plano-card.destaque { border: 3px solid var(--rosa); }
+
+    .plano-card.destaque {
+      border: 3px solid var(--rosa);
+    }
+
     .plano-badge-top {
-      background: var(--rosa); color: #fff;
-      text-align: center; padding: 10px;
-      font-size: 14px; font-weight: 700;
+      background: var(--rosa);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 700;
     }
-    .plano-card-body { padding: 26px 24px; display: flex; flex-direction: column; gap: 16px; }
+
+    .plano-card-body {
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
     .plano-img-ph {
-      width: 100%; height: 200px;
-      background: linear-gradient(160deg,#f9e0ea,#f5c4d8);
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(160deg, #f9e0ea, #f5c4d8);
       border-radius: 8px;
-      display: flex; align-items: center; justify-content: center; font-size: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
     }
-    .plano-lista { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .plano-lista li { font-size: 14px; color: #333; display: flex; align-items: center; gap: 8px; }
-    .planos-aviso { text-align: center; font-weight: 700; color: var(--rosa); font-size: 16px; max-width: 900px; margin: 0 auto; }
+
+    .plano-lista {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .plano-lista li {
+      font-size: 14px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .planos-aviso {
+      text-align: center;
+      font-weight: 700;
+      color: var(--rosa);
+      font-size: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
     /* GARANTIA */
-    .garantia { background: var(--branco); }
+    .garantia {
+      background: var(--branco);
+    }
+
     .garantia-inner {
-      max-width: 900px; margin: 0 auto;
-      display: flex; align-items: center; gap: 50px; text-align: left;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      text-align: left;
     }
+
     .garantia-img-ph {
-      width: 220px; height: 220px; flex-shrink: 0; border-radius: 50%;
-      background: radial-gradient(circle,#3a2c00 0%,#1a1200 100%);
+      width: 220px;
+      height: 220px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle, #3a2c00 0%, #1a1200 100%);
       border: 6px solid #b8860b;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      color: #ffd700; font-weight: 900; text-transform: uppercase;
-      text-align: center; font-size: 12px; line-height: 1.4; letter-spacing: 0.5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffd700;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
     }
-    .garantia-img-ph .seal-n { font-size: 42px; font-weight: 900; line-height: 1; }
-    .garantia-texto h2 { text-align: left; margin-bottom: 16px; color: var(--rosa); }
-    .garantia-texto p  { font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 28px; }
+
+    .garantia-img-ph .seal-n {
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .garantia-texto h2 {
+      text-align: left;
+      margin-bottom: 16px;
+      color: var(--rosa);
+    }
+
+    .garantia-texto p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
 
     /* FAQ */
-    .faq { background: #F5F5F5; }
-    .faq-container { max-width: 780px; margin: 0 auto; }
-    .faq-item { background: #fff; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+    .faq {
+      background: #F5F5F5;
+    }
+
+    .faq-container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
     .faq-pergunta {
-      padding: 18px 20px; cursor: pointer;
-      font-weight: 600; font-size: 15px;
-      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       user-select: none;
     }
-    .faq-pergunta:hover { background: #fafafa; }
-    .faq-seta { transition: transform 0.3s ease; font-size: 14px; color: var(--rosa); flex-shrink: 0; margin-left: 12px; }
-    .faq-resposta { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-    .faq-resposta p { padding: 0 20px 18px; font-size: 14px; color: #555; line-height: 1.6; }
-    .faq-cta { text-align: center; margin-top: 40px; }
+
+    .faq-pergunta:hover {
+      background: #fafafa;
+    }
+
+    .faq-seta {
+      transition: transform 0.3s ease;
+      font-size: 14px;
+      color: var(--rosa);
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+
+    .faq-resposta {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .faq-resposta p {
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .faq-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
 
     /* FOOTER */
-    footer { background: #1a1a1a; color: #fff; text-align: center; padding: 32px 20px; font-size: 13px; line-height: 1.8; }
+    footer {
+      background: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
 
     /* RESPONSIVO */
     @media (max-width: 1024px) {
-      .beneficios-grid { grid-template-columns: repeat(2,1fr); }
-      .bonus-grid      { grid-template-columns: repeat(2,1fr); }
+      .beneficios-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .bonus-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
-      h1 { font-size: 26px; }
-      h2 { font-size: 22px; }
-      .btn-cta { font-size: 15px; padding: 14px 24px; }
-      section { padding: 40px 16px; }
-      .hero { padding: 40px 16px; }
-      .hero h1 { font-size: 26px; }
-      .carrossel { padding: 40px 0; }
-      .carousel-card { width: 300px; height: 424px; }
-      .beneficios-grid { grid-template-columns: 1fr; }
-      .depoimentos-grid { grid-template-columns: 1fr; }
-      .bonus-grid { grid-template-columns: 1fr; }
-      .planos-grid { grid-template-columns: 1fr; }
-      .garantia-inner { flex-direction: column; align-items: center; text-align: center; }
-      .garantia-texto h2 { text-align: center; }
+      h1 {
+        font-size: 26px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .btn-cta {
+        font-size: 15px;
+        padding: 14px 24px;
+      }
+
+      section {
+        padding: 40px 16px;
+      }
+
+      .hero {
+        padding: 40px 16px;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .carrossel {
+        padding: 40px 0;
+      }
+
+      .carousel-card {
+        width: 300px;
+        height: 424px;
+      }
+
+      .beneficios-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .depoimentos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bonus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .planos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .garantia-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .garantia-texto h2 {
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -315,48 +831,81 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <h1><strong>+1.000 Moldes de Feltro <span style="color:#000000;font-weight:normal;">Prontos para Imprimir, Costurar e Vender</span> + Calculadora Automática</strong></h1>
+      <h1><strong>+1.000 Moldes de Feltro <span style="color:#000000;font-weight:normal;">Prontos para Imprimir,
+            Costurar e Vender</span> + Calculadora Automática</strong></h1>
       <img class="hero-img" src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_44 (1).png" alt="Moldes de Feltro">
-      <p class="hero-subtitle">Bichinhos, chaveiros, guirlandas, bonecas, lembrancinhas, enfeites, datas comemorativas e muito mais — tudo organizado para você começar no feltro ou acelerar sua produção hoje mesmo.</p>
+      <p class="hero-subtitle">Bichinhos, chaveiros, guirlandas, bonecas, lembrancinhas, enfeites, datas comemorativas e
+        muito mais — tudo organizado para você começar no feltro ou acelerar sua produção hoje mesmo.</p>
       <button class="btn-cta btn-hero-shine btn-pulse">QUERO COMEÇAR HOJE</button>
     </div>
   </section>
 
   <!-- CARROSSEL -->
   <section class="carrossel">
-    <h2 style="font-weight:700;color:#000000;">VEJA OS MODELOS QUE VOCÊ PODE <span style="color:#E8437A;">COSTURAR E VENDER</span></h2>
+    <h2 style="font-weight:700;color:#000000;">VEJA OS MODELOS QUE VOCÊ PODE <span style="color:#E8437A;">COSTURAR E
+        VENDER</span></h2>
     <div class="carousel-wrapper">
       <div class="carousel-track">
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_44 (2).png" alt="Chaveiro de Bichinho"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_44 (3).png" alt="Guirlanda de Maternidade"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (4).png" alt="Bonequinha em Feltro"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (5).png" alt="Enfeite de Porta"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (6).png" alt="Lembrancinha Infantil"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (1).png" alt="Flor em Feltro"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (2).png" alt="Safari Baby"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (3).png" alt="Ursinho"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (4).png" alt="Coelhinho"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (5).png" alt="Natal"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (6).png" alt="Páscoa"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (7).png" alt="Dia das Mães"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (8).png" alt="Alfabeto em Feltro"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (9).png" alt="Marcador de Página"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (10).png" alt="Chaveiro Personalizado"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_44 (2).png" alt="Chaveiro de Bichinho"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_44 (3).png" alt="Guirlanda de Maternidade"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (4).png" alt="Bonequinha em Feltro"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (5).png" alt="Enfeite de Porta"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (6).png" alt="Lembrancinha Infantil"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (1).png" alt="Flor em Feltro"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (2).png" alt="Safari Baby"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (3).png" alt="Ursinho"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (4).png" alt="Coelhinho"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (5).png" alt="Natal"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (6).png" alt="Páscoa"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (7).png" alt="Dia das Mães"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (8).png" alt="Alfabeto em Feltro"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (9).png" alt="Marcador de Página"></div>
-        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (10).png" alt="Chaveiro Personalizado"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_44 (2).png"
+            alt="Chaveiro de Bichinho"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_44 (3).png"
+            alt="Guirlanda de Maternidade"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (4).png"
+            alt="Bonequinha em Feltro"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (5).png"
+            alt="Enfeite de Porta"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (6).png"
+            alt="Lembrancinha Infantil"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (1).png"
+            alt="Flor em Feltro"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (2).png"
+            alt="Safari Baby"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (3).png" alt="Ursinho">
+        </div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (4).png" alt="Coelhinho">
+        </div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (5).png" alt="Natal">
+        </div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (6).png" alt="Páscoa">
+        </div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (7).png"
+            alt="Dia das Mães"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (8).png"
+            alt="Alfabeto em Feltro"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (9).png"
+            alt="Marcador de Página"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (10).png"
+            alt="Chaveiro Personalizado"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_44 (2).png"
+            alt="Chaveiro de Bichinho"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_44 (3).png"
+            alt="Guirlanda de Maternidade"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (4).png"
+            alt="Bonequinha em Feltro"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (5).png"
+            alt="Enfeite de Porta"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (6).png"
+            alt="Lembrancinha Infantil"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (1).png"
+            alt="Flor em Feltro"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (2).png"
+            alt="Safari Baby"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (3).png" alt="Ursinho">
+        </div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_52 (4).png" alt="Coelhinho">
+        </div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (5).png" alt="Natal">
+        </div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (6).png" alt="Páscoa">
+        </div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (7).png"
+            alt="Dia das Mães"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (8).png"
+            alt="Alfabeto em Feltro"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (9).png"
+            alt="Marcador de Página"></div>
+        <div class="carousel-card"><img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_53 (10).png"
+            alt="Chaveiro Personalizado"></div>
       </div>
     </div>
   </section>
@@ -367,47 +916,76 @@
       <h2 style="color:#fff;font-size:22px;font-weight:800;letter-spacing:0.5px;margin:0;">O QUE VOCÊ VAI RECEBER</h2>
     </div>
     <div style="background:#F5F5F5;text-align:center;padding:36px 20px;margin-bottom:4px;">
-      <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (7).png" alt="Moldes de Feltro" style="max-width:420px;width:100%;border-radius:16px;display:inline-block;">
+      <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (7).png" alt="Moldes de Feltro"
+        style="max-width:420px;width:100%;border-radius:16px;display:inline-block;">
     </div>
     <div style="text-align:center;margin:4px 0 8px;">
-      <span style="display:inline-block;background:#1a7a3a;color:#fff;font-weight:700;font-size:12px;padding:7px 22px;border-radius:50px;letter-spacing:1.5px;">ACESSO IMEDIATO</span>
+      <span
+        style="display:inline-block;background:#1a7a3a;color:#fff;font-weight:700;font-size:12px;padding:7px 22px;border-radius:50px;letter-spacing:1.5px;">ACESSO
+        IMEDIATO</span>
     </div>
     <div style="max-width:600px;margin:16px auto 0;padding:0 20px;display:flex;flex-direction:column;gap:20px;">
 
       <div style="background:#fff;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.09);padding:28px 24px;">
         <div style="text-align:center;margin-bottom:14px;">
-          <span style="display:inline-block;background:#F0185A;color:#fff;font-weight:700;font-size:12px;padding:5px 20px;border-radius:50px;letter-spacing:1px;">ITEM 01</span>
+          <span
+            style="display:inline-block;background:#F0185A;color:#fff;font-weight:700;font-size:12px;padding:5px 20px;border-radius:50px;letter-spacing:1px;">ITEM
+            01</span>
         </div>
-        <h3 style="text-align:center;font-size:16px;font-weight:800;color:#222;text-transform:uppercase;margin-bottom:10px;">+1.000 MOLDES DE FELTRO PRONTOS PARA IMPRIMIR</h3>
-        <p style="text-align:center;font-size:14px;color:#555;margin-bottom:18px;">Mais de 1.000 moldes organizados por categorias para você imprimir, recortar, montar e transformar em peças físicas para vender, presentear ou usar em encomendas.</p>
+        <h3
+          style="text-align:center;font-size:16px;font-weight:800;color:#222;text-transform:uppercase;margin-bottom:10px;">
+          +1.000 MOLDES DE FELTRO PRONTOS PARA IMPRIMIR</h3>
+        <p style="text-align:center;font-size:14px;color:#555;margin-bottom:18px;">Mais de 1.000 moldes organizados por
+          categorias para você imprimir, recortar, montar e transformar em peças físicas para vender, presentear ou usar
+          em encomendas.</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
-          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Bichinhos em feltro</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Chaveiros</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Bonecas</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Guirlandas</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Enfeites de porta</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Lembrancinhas infantis</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Datas Comemorativas</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> E muito mais...</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span
+              style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Bichinhos em feltro</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span
+              style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Chaveiros</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span
+              style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Bonecas</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span
+              style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Guirlandas</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span
+              style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Enfeites de porta</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span
+              style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Lembrancinhas infantis</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span
+              style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> Datas Comemorativas</li>
+          <li style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#333;"><span
+              style="color:#F0185A;font-size:16px;flex-shrink:0;">✔</span> E muito mais...</li>
         </ul>
       </div>
 
       <div style="background:#fff;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.09);padding:28px 24px;">
         <div style="text-align:center;margin-bottom:14px;">
-          <span style="display:inline-block;background:#F0185A;color:#fff;font-weight:700;font-size:12px;padding:5px 20px;border-radius:50px;letter-spacing:1px;">ITEM 02</span>
+          <span
+            style="display:inline-block;background:#F0185A;color:#fff;font-weight:700;font-size:12px;padding:5px 20px;border-radius:50px;letter-spacing:1px;">ITEM
+            02</span>
         </div>
-        <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (8).png" alt="Calculadora de Precificação" style="width:100%;border-radius:10px;margin-bottom:14px;">
-        <h3 style="text-align:center;font-size:16px;font-weight:800;color:#222;text-transform:uppercase;margin-bottom:10px;">CALCULADORA DE PRECIFICAÇÃO AUTOMÁTICA</h3>
-        <p style="text-align:center;font-size:14px;color:#555;margin:0;">Coloca os valores que você gastou e ela te diz exatamente quanto cobrar — sem chute, sem medo de errar o preço e sem perder venda.</p>
+        <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (8).png" alt="Calculadora de Precificação"
+          style="width:100%;border-radius:10px;margin-bottom:14px;">
+        <h3
+          style="text-align:center;font-size:16px;font-weight:800;color:#222;text-transform:uppercase;margin-bottom:10px;">
+          CALCULADORA DE PRECIFICAÇÃO AUTOMÁTICA</h3>
+        <p style="text-align:center;font-size:14px;color:#555;margin:0;">Coloca os valores que você gastou e ela te diz
+          exatamente quanto cobrar — sem chute, sem medo de errar o preço e sem perder venda.</p>
       </div>
 
       <div style="background:#fff;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.09);padding:28px 24px;">
         <div style="text-align:center;margin-bottom:14px;">
-          <span style="display:inline-block;background:#F0185A;color:#fff;font-weight:700;font-size:12px;padding:5px 20px;border-radius:50px;letter-spacing:1px;">ITEM 03</span>
+          <span
+            style="display:inline-block;background:#F0185A;color:#fff;font-weight:700;font-size:12px;padding:5px 20px;border-radius:50px;letter-spacing:1px;">ITEM
+            03</span>
         </div>
-        <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (9).png" alt="Videoaula Passo a Passo" style="width:100%;border-radius:10px;margin-bottom:14px;">
-        <h3 style="text-align:center;font-size:16px;font-weight:800;color:#222;text-transform:uppercase;margin-bottom:10px;">VIDEOAULA PASSO A PASSO DE MONTAGEM</h3>
-        <p style="text-align:center;font-size:14px;color:#555;margin:0;">Mesmo sem nunca ter feito nada de feltro, você assiste, segue o passo a passo e já sai com o produto pronto para vender.</p>
+        <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (9).png" alt="Videoaula Passo a Passo"
+          style="width:100%;border-radius:10px;margin-bottom:14px;">
+        <h3
+          style="text-align:center;font-size:16px;font-weight:800;color:#222;text-transform:uppercase;margin-bottom:10px;">
+          VIDEOAULA PASSO A PASSO DE MONTAGEM</h3>
+        <p style="text-align:center;font-size:14px;color:#555;margin:0;">Mesmo sem nunca ter feito nada de feltro, você
+          assiste, segue o passo a passo e já sai com o produto pronto para vender.</p>
       </div>
 
     </div>
@@ -418,33 +996,59 @@
     <div class="section-inner">
       <h2>Por que escolher esses Moldes?</h2>
       <div class="beneficios-grid">
-        <div class="beneficio-card"><span class="beneficio-icon">🎯</span><h3>Comece do zero sem travar</h3><p>Mesmo sem experiência você consegue montar</p></div>
-        <div class="beneficio-card"><span class="beneficio-icon">⚡</span><h3>Monte em minutos</h3><p>Cada molde leva de 10 a 15 minutos para montar.</p></div>
-        <div class="beneficio-card"><span class="beneficio-icon">💰</span><h3>Gaste centavos para produzir</h3><p>O material sai por centavos e você vende com margem alta.</p></div>
-        <div class="beneficio-card"><span class="beneficio-icon">📱</span><h3>Saiba exatamente quanto cobrar</h3><p>A Calculadora Automática já te diz o preço certo e quanto você vai lucrar.</p></div>
-        <div class="beneficio-card"><span class="beneficio-icon">🛒</span><h3>Moldes dos produtos mais procurados</h3><p>Não são moldes aleatórios, são moldes com alta saída e demanda comprovada no mercado.</p></div>
-        <div class="beneficio-card"><span class="beneficio-icon">📦</span><h3>Tudo organizado em um só lugar</h3><p>Acesse a qualquer hora, de qualquer lugar, e encontre tudo pronto para usar.</p></div>
+        <div class="beneficio-card"><span class="beneficio-icon">🎯</span>
+          <h3>Comece do zero sem travar</h3>
+          <p>Mesmo sem experiência você consegue montar</p>
+        </div>
+        <div class="beneficio-card"><span class="beneficio-icon">⚡</span>
+          <h3>Monte em minutos</h3>
+          <p>Cada molde leva de 10 a 15 minutos para montar.</p>
+        </div>
+        <div class="beneficio-card"><span class="beneficio-icon">💰</span>
+          <h3>Gaste centavos para produzir</h3>
+          <p>O material sai por centavos e você vende com margem alta.</p>
+        </div>
+        <div class="beneficio-card"><span class="beneficio-icon">📱</span>
+          <h3>Saiba exatamente quanto cobrar</h3>
+          <p>A Calculadora Automática já te diz o preço certo e quanto você vai lucrar.</p>
+        </div>
+        <div class="beneficio-card"><span class="beneficio-icon">🛒</span>
+          <h3>Moldes dos produtos mais procurados</h3>
+          <p>Não são moldes aleatórios, são moldes com alta saída e demanda comprovada no mercado.</p>
+        </div>
+        <div class="beneficio-card"><span class="beneficio-icon">📦</span>
+          <h3>Tudo organizado em um só lugar</h3>
+          <p>Acesse a qualquer hora, de qualquer lugar, e encontre tudo pronto para usar.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA BANNER -->
   <div style="background:#F52068;padding:28px 20px;text-align:center;">
-    <button style="display:inline-block;background:#ffffff;color:#F52068;font-weight:700;font-size:16px;font-family:'Poppins',sans-serif;border-radius:50px;padding:14px 32px;border:none;cursor:pointer;animation:pulse-glow-white 2.2s ease-in-out infinite;">Quero os moldes agora! →</button>
+    <button
+      style="display:inline-block;background:#ffffff;color:#F52068;font-weight:700;font-size:16px;font-family:'Poppins',sans-serif;border-radius:50px;padding:14px 32px;border:none;cursor:pointer;animation:pulse-glow-white 2.2s ease-in-out infinite;">Quero
+      os moldes agora! →</button>
   </div>
 
   <!-- IDEAL PARA VOCÊ -->
   <section class="ideal">
     <div class="section-inner">
-      <h2><span style="color:#2C2C2A;">Ideal </span><span style="color:#F52068;">para você</span><span style="color:#2C2C2A;"> que deseja:</span></h2>
+      <h2><span style="color:#2C2C2A;">Ideal </span><span style="color:#F52068;">para você</span><span
+          style="color:#2C2C2A;"> que deseja:</span></h2>
       <div class="ideal-lista">
-        <div class="ideal-item"><span class="check-icon">✅</span><span>Precisa de dinheiro rápido para pagar as contas</span></div>
+        <div class="ideal-item"><span class="check-icon">✅</span><span>Precisa de dinheiro rápido para pagar as
+            contas</span></div>
         <div class="ideal-item"><span class="check-icon">✅</span><span>Não sabe por onde começar</span></div>
         <div class="ideal-item"><span class="check-icon">✅</span><span>Quer uma renda sem sair de casa</span></div>
-        <div class="ideal-item"><span class="check-icon">✅</span><span>Tem medo de cobrar errado e perder a venda</span></div>
-        <div class="ideal-item"><span class="check-icon">✅</span><span>Precisa de algo fácil, prático e sem experiência</span></div>
-        <div class="ideal-item"><span class="check-icon">✅</span><span>Já tentou outras formas e nunca deu certo</span></div>
-        <div class="ideal-item"><span class="check-icon">✅</span><span>Não tem muito tempo mas precisa de dinheiro agora</span></div>
+        <div class="ideal-item"><span class="check-icon">✅</span><span>Tem medo de cobrar errado e perder a venda</span>
+        </div>
+        <div class="ideal-item"><span class="check-icon">✅</span><span>Precisa de algo fácil, prático e sem
+            experiência</span></div>
+        <div class="ideal-item"><span class="check-icon">✅</span><span>Já tentou outras formas e nunca deu certo</span>
+        </div>
+        <div class="ideal-item"><span class="check-icon">✅</span><span>Não tem muito tempo mas precisa de dinheiro
+            agora</span></div>
       </div>
     </div>
   </section>
@@ -455,67 +1059,87 @@
       <h2 style="line-height:1.5;">E NÃO PARA POR AÍ...<br>TEM MAIS!</h2>
       <p class="bonus-subtitle">Você também vai receber…</p>
       <div style="text-align:center;margin-bottom:40px;">
-        <span style="display:inline-block;background:#F0185A;color:#fff;font-weight:700;font-size:16px;padding:10px 28px;border-radius:50px;letter-spacing:0.5px;">6 BÔNUS EXCLUSIVOS</span>
+        <span
+          style="display:inline-block;background:#F0185A;color:#fff;font-weight:700;font-size:16px;padding:10px 28px;border-radius:50px;letter-spacing:0.5px;">6
+          BÔNUS EXCLUSIVOS</span>
       </div>
       <div class="bonus-grid">
 
         <div class="bonus-card">
           <div class="bonus-badge">#1 – BÔNUS HOJE!</div>
-          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_01 (1).png" alt="Kit Primeira Peça em Feltro" style="width:100%;height:180px;object-fit:cover;display:block;">
+          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_01 (1).png" alt="Kit Primeira Peça em Feltro"
+            style="width:100%;height:180px;object-fit:cover;display:block;">
           <div class="bonus-card-body">
             <h3>KIT PRIMEIRA PEÇA EM FELTRO</h3>
-            <p>Tudo o que você precisa para fazer sua primeira peça — quais materiais comprar, como escolher o feltro, como transferir o molde e finalizar com qualidade.</p>
-            <div class="bonus-preco"><span class="bonus-de">De R$37</span><span class="bonus-gratis">GRÁTIS HOJE</span></div>
+            <p>Tudo o que você precisa para fazer sua primeira peça — quais materiais comprar, como escolher o feltro,
+              como transferir o molde e finalizar com qualidade.</p>
+            <div class="bonus-preco"><span class="bonus-de">De R$37</span><span class="bonus-gratis">GRÁTIS HOJE</span>
+            </div>
           </div>
         </div>
 
         <div class="bonus-card">
           <div class="bonus-badge">#2 – BÔNUS HOJE!</div>
-          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_02 (2).png" alt="Guia de Materiais para Iniciantes" style="width:100%;height:180px;object-fit:cover;display:block;">
+          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_02 (2).png" alt="Guia de Materiais para Iniciantes"
+            style="width:100%;height:180px;object-fit:cover;display:block;">
           <div class="bonus-card-body">
             <h3>GUIA DE MATERIAIS PARA INICIANTES</h3>
-            <p>Lista prática com os materiais básicos para começar sem gastar demais: feltro, linha, agulha, enchimento, cola, tesoura e embalagens.</p>
-            <div class="bonus-preco"><span class="bonus-de">De R$27</span><span class="bonus-gratis">GRÁTIS HOJE</span></div>
+            <p>Lista prática com os materiais básicos para começar sem gastar demais: feltro, linha, agulha, enchimento,
+              cola, tesoura e embalagens.</p>
+            <div class="bonus-preco"><span class="bonus-de">De R$27</span><span class="bonus-gratis">GRÁTIS HOJE</span>
+            </div>
           </div>
         </div>
 
         <div class="bonus-card">
           <div class="bonus-badge">#3 – BÔNUS HOJE!</div>
-          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_02 (3).png" alt="100 Mensagens para Vender no WhatsApp" style="width:100%;height:180px;object-fit:cover;display:block;">
+          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_02 (3).png"
+            alt="100 Mensagens para Vender no WhatsApp" style="width:100%;height:180px;object-fit:cover;display:block;">
           <div class="bonus-card-body">
             <h3>100 MENSAGENS PRONTAS PARA VENDER NO WHATSAPP</h3>
-            <p>Copie, cole no WhatsApp e chame clientes na hora — sem precisar pensar no que escrever ou ter medo de parecer chata.</p>
-            <div class="bonus-preco"><span class="bonus-de">De R$37</span><span class="bonus-gratis">GRÁTIS HOJE</span></div>
+            <p>Copie, cole no WhatsApp e chame clientes na hora — sem precisar pensar no que escrever ou ter medo de
+              parecer chata.</p>
+            <div class="bonus-preco"><span class="bonus-de">De R$37</span><span class="bonus-gratis">GRÁTIS HOJE</span>
+            </div>
           </div>
         </div>
 
         <div class="bonus-card">
           <div class="bonus-badge">#4 – BÔNUS HOJE!</div>
-          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_02 (4).png" alt="100 Ideias de Peças para Vender" style="width:100%;height:180px;object-fit:cover;display:block;">
+          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_02 (4).png" alt="100 Ideias de Peças para Vender"
+            style="width:100%;height:180px;object-fit:cover;display:block;">
           <div class="bonus-card-body">
             <h3>100 IDEIAS DE PEÇAS PARA VENDER</h3>
-            <p>Uma lista com ideias de produtos em feltro para vender em diferentes épocas do ano: maternidade, escola, Natal, Páscoa, Dia das Mães e aniversário infantil.</p>
-            <div class="bonus-preco"><span class="bonus-de">De R$47</span><span class="bonus-gratis">GRÁTIS HOJE</span></div>
+            <p>Uma lista com ideias de produtos em feltro para vender em diferentes épocas do ano: maternidade, escola,
+              Natal, Páscoa, Dia das Mães e aniversário infantil.</p>
+            <div class="bonus-preco"><span class="bonus-de">De R$47</span><span class="bonus-gratis">GRÁTIS HOJE</span>
+            </div>
           </div>
         </div>
 
         <div class="bonus-card">
           <div class="bonus-badge">#5 – BÔNUS HOJE!</div>
-          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_02 (5).png" alt="Etiquetas Tags e Cartões" style="width:100%;height:180px;object-fit:cover;display:block;">
+          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_02 (5).png" alt="Etiquetas Tags e Cartões"
+            style="width:100%;height:180px;object-fit:cover;display:block;">
           <div class="bonus-card-body">
             <h3>ETIQUETAS, TAGS E CARTÕES DE AGRADECIMENTO</h3>
-            <p>Modelos imprimíveis para deixar suas peças com aparência mais profissional na entrega: tag de produto, cartão de agradecimento e etiqueta de embalagem.</p>
-            <div class="bonus-preco"><span class="bonus-de">De R$27</span><span class="bonus-gratis">GRÁTIS HOJE</span></div>
+            <p>Modelos imprimíveis para deixar suas peças com aparência mais profissional na entrega: tag de produto,
+              cartão de agradecimento e etiqueta de embalagem.</p>
+            <div class="bonus-preco"><span class="bonus-de">De R$27</span><span class="bonus-gratis">GRÁTIS HOJE</span>
+            </div>
           </div>
         </div>
 
         <div class="bonus-card">
           <div class="bonus-badge">#6 – BÔNUS HOJE!</div>
-          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_02 (6).png" alt="Calendário de Datas Comemorativas" style="width:100%;height:180px;object-fit:cover;display:block;">
+          <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_02 (6).png" alt="Calendário de Datas Comemorativas"
+            style="width:100%;height:180px;object-fit:cover;display:block;">
           <div class="bonus-card-body">
             <h3>CALENDÁRIO DE DATAS COMEMORATIVAS PARA ARTESÃS</h3>
-            <p>Um calendário para você se planejar antes das datas que mais vendem: Páscoa, Dia das Mães, Natal, volta às aulas e maternidade.</p>
-            <div class="bonus-preco"><span class="bonus-de">De R$37</span><span class="bonus-gratis">GRÁTIS HOJE</span></div>
+            <p>Um calendário para você se planejar antes das datas que mais vendem: Páscoa, Dia das Mães, Natal, volta
+              às aulas e maternidade.</p>
+            <div class="bonus-preco"><span class="bonus-de">De R$37</span><span class="bonus-gratis">GRÁTIS HOJE</span>
+            </div>
           </div>
         </div>
 
@@ -529,19 +1153,24 @@
     <div class="section-inner" style="padding-top:50px;">
       <h2 style="line-height:1.3;">Escolha o Melhor Plano<br><span style="color:#F0185A;">Para Você!</span></h2>
       <div style="text-align:center;margin:16px 0 28px;">
-        <p style="font-size:12px;font-weight:700;letter-spacing:1.2px;color:#555;text-transform:uppercase;margin-bottom:12px;">OFERTA LIMITADA – TERMINA EM:</p>
+        <p
+          style="font-size:12px;font-weight:700;letter-spacing:1.2px;color:#555;text-transform:uppercase;margin-bottom:12px;">
+          OFERTA LIMITADA – TERMINA EM:</p>
         <div style="display:inline-flex;align-items:center;gap:8px;">
-          <div style="background:#F52068;color:#fff;border-radius:10px;padding:10px 16px;min-width:64px;text-align:center;">
+          <div
+            style="background:#F52068;color:#fff;border-radius:10px;padding:10px 16px;min-width:64px;text-align:center;">
             <div id="planos-hours" style="font-size:28px;font-weight:800;line-height:1;">04</div>
             <div style="font-size:10px;font-weight:600;letter-spacing:1px;margin-top:4px;">HORAS</div>
           </div>
           <span style="color:#F52068;font-size:26px;font-weight:800;">:</span>
-          <div style="background:#F52068;color:#fff;border-radius:10px;padding:10px 16px;min-width:64px;text-align:center;">
+          <div
+            style="background:#F52068;color:#fff;border-radius:10px;padding:10px 16px;min-width:64px;text-align:center;">
             <div id="planos-minutes" style="font-size:28px;font-weight:800;line-height:1;">00</div>
             <div style="font-size:10px;font-weight:600;letter-spacing:1px;margin-top:4px;">MINUTOS</div>
           </div>
           <span style="color:#F52068;font-size:26px;font-weight:800;">:</span>
-          <div style="background:#F52068;color:#fff;border-radius:10px;padding:10px 16px;min-width:64px;text-align:center;">
+          <div
+            style="background:#F52068;color:#fff;border-radius:10px;padding:10px 16px;min-width:64px;text-align:center;">
             <div id="planos-seconds" style="font-size:28px;font-weight:800;line-height:1;">00</div>
             <div style="font-size:10px;font-weight:600;letter-spacing:1px;margin-top:4px;">SEGUNDOS</div>
           </div>
@@ -551,16 +1180,19 @@
       <div class="planos-grid">
 
         <!-- Plano Básico -->
-        <div class="plano-card" style="border:2px solid #222;max-width:420px;margin-left:auto;margin-right:auto;width:100%;">
+        <div class="plano-card"
+          style="border:2px solid #222;max-width:420px;margin-left:auto;margin-right:auto;width:100%;">
           <div class="plano-card-body">
             <p style="font-weight:800;font-size:22px;color:#222;text-align:center;margin-bottom:12px;">Plano Básico</p>
             <div style="text-align:center;margin-bottom:10px;">
-              <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,193,7,0.12);border:1px solid rgba(255,193,7,0.4);border-radius:50px;padding:5px 12px;">
+              <div
+                style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,193,7,0.12);border:1px solid rgba(255,193,7,0.4);border-radius:50px;padding:5px 12px;">
                 <span style="font-size:12px;">⚠️</span>
                 <span style="color:#b8860b;font-size:12px;font-weight:600;">Você está perdendo os bônus</span>
               </div>
             </div>
-            <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_03 (7).png" alt="Plano Básico" style="width:100%;border-radius:8px;display:block;">
+            <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_03 (7).png" alt="Plano Básico"
+              style="width:100%;border-radius:8px;display:block;">
             <ul class="plano-lista">
               <li>✅ +1.000 Moldes de Feltro Prontos para Imprimir</li>
               <li>✅ Calculadora de Precificação Automática</li>
@@ -572,12 +1204,17 @@
             <div style="text-align:center;margin-bottom:16px;">
               <span style="font-size:4rem;font-weight:800;color:#1a7a3a;line-height:1.1;">R$9,90</span>
             </div>
-            <button id="btn-basico" data-href="https://pay.lowify.com.br/checkout.php?product_id=2iUGom" style="width:100%;background:#1a7a3a;color:#fff;border:none;border-radius:50px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;">QUERO O BÁSICO</button>
+            <button id="btn-basico" data-href="https://pay.lowify.com.br/checkout.php?product_id=2iUGom"
+              style="width:100%;background:#1a7a3a;color:#fff;border:none;border-radius:50px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;">QUERO
+              O BÁSICO</button>
             <div style="text-align:center;margin-top:14px;">
-              <p style="font-size:1.1rem;color:#e00000;font-weight:700;margin-bottom:10px;">92% das pessoas aproveitam a oferta abaixo:</p>
-              <span class="seta-bounce" style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;background:#e00000;border-radius:50%;">
+              <p style="font-size:1.1rem;color:#e00000;font-weight:700;margin-bottom:10px;">92% das pessoas aproveitam a
+                oferta abaixo:</p>
+              <span class="seta-bounce"
+                style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;background:#e00000;border-radius:50%;">
                 <svg width="26" height="26" viewBox="0 0 14 14" fill="none">
-                  <path d="M7 2v10M3 8l4 4 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7 2v10M3 8l4 4 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
               </span>
             </div>
@@ -588,29 +1225,40 @@
         <div class="plano-card destaque" style="max-width:420px;margin-left:auto;margin-right:auto;width:100%;">
           <div class="plano-badge-top">⭐ Mais escolhido</div>
           <div style="text-align:center;">
-            <div style="display:inline-flex;align-items:center;justify-content:center;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.4);border-radius:50px;padding:5px 14px;margin-top:12px;margin-bottom:16px;">
+            <div
+              style="display:inline-flex;align-items:center;justify-content:center;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.4);border-radius:50px;padding:5px 14px;margin-top:12px;margin-bottom:16px;">
               <span style="color:#16a34a;font-size:12px;font-weight:600;">+5.489 pessoas escolheram essa oferta</span>
             </div>
           </div>
           <div class="plano-card-body">
-            <p style="font-weight:800;font-size:22px;color:#222;text-align:center;margin-bottom:10px;">PLANO COMPLETO</p>
+            <p style="font-weight:800;font-size:22px;color:#222;text-align:center;margin-bottom:10px;">PLANO COMPLETO
+            </p>
             <div style="text-align:center;margin-bottom:8px;">
-              <span style="display:inline-block;background:#1a7a3a;color:#fff;font-size:12px;font-weight:700;padding:6px 16px;border-radius:50px;letter-spacing:0.5px;">TODOS OS BÔNUS INCLUSOS</span>
+              <span
+                style="display:inline-block;background:#1a7a3a;color:#fff;font-size:12px;font-weight:700;padding:6px 16px;border-radius:50px;letter-spacing:0.5px;">TODOS
+                OS BÔNUS INCLUSOS</span>
             </div>
-            <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_03 (8).png" alt="Plano Completo" style="width:100%;border-radius:8px;display:block;">
+            <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_03 (8).png" alt="Plano Completo"
+              style="width:100%;border-radius:8px;display:block;">
             <div style="text-align:center;margin:10px 0;">
-              <span style="display:inline-block;background:#F0185A;color:#fff;font-size:12px;font-weight:700;padding:5px 16px;border-radius:50px;">⚡ 10x mais moldes</span>
+              <span
+                style="display:inline-block;background:#F0185A;color:#fff;font-size:12px;font-weight:700;padding:5px 16px;border-radius:50px;">⚡
+                10x mais moldes</span>
             </div>
             <ul class="plano-lista">
               <li>✅ <strong>+10.000 Moldes</strong> de Feltro Prontos para Imprimir</li>
               <li>✅ Calculadora de Precificação Automática</li>
               <li>✅ Videoaula Passo a Passo de Montagem</li>
               <li style="display:block;">✅ <strong style="color:#000;">BÔNUS:</strong> Kit Primeira Peça em Feltro</li>
-              <li style="display:block;">✅ <strong style="color:#000;">BÔNUS:</strong> Guia de Materiais para Iniciantes</li>
-              <li style="display:block;">✅ <strong style="color:#000;">BÔNUS:</strong> 100 Ideias de Peças para Vender</li>
-              <li style="display:block;">✅ <strong style="color:#000;">BÔNUS:</strong> 100 Mensagens Prontas Para Vender</li>
+              <li style="display:block;">✅ <strong style="color:#000;">BÔNUS:</strong> Guia de Materiais para Iniciantes
+              </li>
+              <li style="display:block;">✅ <strong style="color:#000;">BÔNUS:</strong> 100 Ideias de Peças para Vender
+              </li>
+              <li style="display:block;">✅ <strong style="color:#000;">BÔNUS:</strong> 100 Mensagens Prontas Para Vender
+              </li>
               <li style="display:block;">✅ <strong style="color:#000;">BÔNUS:</strong> Etiquetas, Tags e Cartões</li>
-              <li style="display:block;">✅ <strong style="color:#000;">BÔNUS:</strong> Calendário de Datas Comemorativas</li>
+              <li style="display:block;">✅ <strong style="color:#000;">BÔNUS:</strong> Calendário de Datas Comemorativas
+              </li>
             </ul>
             <div style="text-align:center;margin:12px 0 2px;">
               <span style="text-decoration:line-through;color:#e00000;font-size:14px;">De R$197,00</span>
@@ -619,11 +1267,18 @@
               <span style="font-size:4rem;font-weight:800;color:#1a7a3a;line-height:1.1;">R$27,90</span>
             </div>
             <div style="text-align:center;margin-bottom:16px;">
-              <span style="display:inline-block;background:#dcfce7;color:#166534;font-size:12px;font-weight:700;padding:5px 14px;border-radius:50px;">Você economiza R$169,10</span>
+              <span
+                style="display:inline-block;background:#dcfce7;color:#166534;font-size:12px;font-weight:700;padding:5px 14px;border-radius:50px;">Você
+                economiza R$169,10</span>
             </div>
-            <a href="https://pay.lowify.com.br/checkout.php?product_id=s2XF0L" class="btn-pulse btn-hero-shine" style="width:100%;display:block;text-align:center;background:#1a7a3a;color:#fff;border:none;border-radius:50px;padding:16px;font-size:16px;font-weight:700;font-family:'Poppins',sans-serif;text-decoration:none;">QUERO O COMPLETO</a>
-            <p style="text-align:center;font-size:12px;color:#555;margin-top:10px;font-weight:600;letter-spacing:0.5px;">ACESSO IMEDIATO E VITALÍCIO</p>
-            <p style="text-align:center;font-size:13px;color:#F0185A;font-weight:700;margin-top:6px;">APROVEITE AGORA: Você não vai encontrar esse preço depois!</p>
+            <a href="https://pay.lowify.com.br/checkout.php?product_id=s2XF0L" class="btn-pulse btn-hero-shine"
+              style="width:100%;display:block;text-align:center;background:#1a7a3a;color:#fff;border:none;border-radius:50px;padding:16px;font-size:16px;font-weight:700;font-family:'Poppins',sans-serif;text-decoration:none;">QUERO
+              O COMPLETO</a>
+            <p
+              style="text-align:center;font-size:12px;color:#555;margin-top:10px;font-weight:600;letter-spacing:0.5px;">
+              ACESSO IMEDIATO E VITALÍCIO</p>
+            <p style="text-align:center;font-size:13px;color:#F0185A;font-weight:700;margin-top:6px;">APROVEITE AGORA:
+              Você não vai encontrar esse preço depois!</p>
           </div>
         </div>
 
@@ -635,7 +1290,8 @@
   <section class="depoimentos">
     <div class="section-inner">
       <div style="display:flex;justify-content:center;margin-bottom:12px;">
-        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(212,83,126,0.15);border:1px solid rgba(212,83,126,0.35);border-radius:50px;padding:6px 14px;">
+        <div
+          style="display:inline-flex;align-items:center;gap:6px;background:rgba(212,83,126,0.15);border:1px solid rgba(212,83,126,0.35);border-radius:50px;padding:6px 14px;">
           <span style="width:7px;height:7px;background:#F52068;border-radius:50%;display:inline-block;"></span>
           <span style="color:#F52068;font-size:12px;font-weight:600;">8.195 mulheres já compraram</span>
         </div>
@@ -645,46 +1301,58 @@
 
         <div class="depoimento-card">
           <div class="depoimento-header">
-            <img class="depoimento-foto-ph" src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_03 (9).png" alt="Ana Maria P.">
+            <img class="depoimento-foto-ph" src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_03 (9).png"
+              alt="Ana Maria P.">
             <div class="depoimento-info">
               <span class="depoimento-nome">Ana Maria P.</span>
               <span class="depoimento-meta">2d • Recife, PE</span>
             </div>
           </div>
-          <p class="depoimento-aspas">Eu queria começar com feltro mas não sabia nem por onde ir. O que mais me ajudou foi ter os moldes prontos e a explicação de como usar. Fiz minhas primeiras peças sem precisar desenhar nada. Consegui vender no mesmo dia que montei.</p>
+          <p class="depoimento-aspas">Eu queria começar com feltro mas não sabia nem por onde ir. O que mais me ajudou
+            foi ter os moldes prontos e a explicação de como usar. Fiz minhas primeiras peças sem precisar desenhar
+            nada. Consegui vender no mesmo dia que montei.</p>
         </div>
 
         <div class="depoimento-card">
           <div class="depoimento-header">
-            <img class="depoimento-foto-ph" src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_03 (10).png" alt="Camila S.">
+            <img class="depoimento-foto-ph" src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_03 (10).png"
+              alt="Camila S.">
             <div class="depoimento-info">
               <span class="depoimento-nome">Camila S.</span>
               <span class="depoimento-meta">1d • Fortaleza, CE</span>
             </div>
           </div>
-          <p class="depoimento-aspas">Eu nunca tinha feito nada de artesanato… achei que não ia conseguir. Mas é muito simples mesmo. Segui a vídeo aula de como montar o molde e ficou lindo, consegui vender pelo WhatsApp no mesmo dia.</p>
+          <p class="depoimento-aspas">Eu nunca tinha feito nada de artesanato… achei que não ia conseguir. Mas é muito
+            simples mesmo. Segui a vídeo aula de como montar o molde e ficou lindo, consegui vender pelo WhatsApp no
+            mesmo dia.</p>
         </div>
 
         <div class="depoimento-card">
           <div class="depoimento-header">
-            <img class="depoimento-foto-ph" src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_03 (11).png" alt="Juliana R.">
+            <img class="depoimento-foto-ph" src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_03 (11).png"
+              alt="Juliana R.">
             <div class="depoimento-info">
               <span class="depoimento-nome">Juliana R.</span>
               <span class="depoimento-meta">3d • Belém, PA</span>
             </div>
           </div>
-          <p class="depoimento-aspas">Comprei sem acreditar muito… achei que ia ser mais uma coisa que não ia funcionar. Mas quando vi que dava pra fazer em minutos e já vender no mesmo dia, comecei a postar. Os pedidos apareceram rápido. Esse dinheiro foi direto pra conta de casa.</p>
+          <p class="depoimento-aspas">Comprei sem acreditar muito… achei que ia ser mais uma coisa que não ia funcionar.
+            Mas quando vi que dava pra fazer em minutos e já vender no mesmo dia, comecei a postar. Os pedidos
+            apareceram rápido. Esse dinheiro foi direto pra conta de casa.</p>
         </div>
 
         <div class="depoimento-card">
           <div class="depoimento-header">
-            <img class="depoimento-foto-ph" src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_04 (12).png" alt="Marcela T.">
+            <img class="depoimento-foto-ph" src="assets/ChatGPT Image 11 de jun. de 2026, 20_04_04 (12).png"
+              alt="Marcela T.">
             <div class="depoimento-info">
               <span class="depoimento-nome">Marcela T.</span>
               <span class="depoimento-meta">5d • Goiânia, GO</span>
             </div>
           </div>
-          <p class="depoimento-aspas">Minha maior dificuldade era quanto cobrar, eu nunca sabia quanto cobrar e ficava com medo de cobrar errado e perder a venda. Com a calculadora isso acabou. Coloco os valores gastos, ela me diz o preço de venda e eu vendo com segurança. Simples assim.</p>
+          <p class="depoimento-aspas">Minha maior dificuldade era quanto cobrar, eu nunca sabia quanto cobrar e ficava
+            com medo de cobrar errado e perder a venda. Com a calculadora isso acabou. Coloco os valores gastos, ela me
+            diz o preço de venda e eu vendo com segurança. Simples assim.</p>
         </div>
 
       </div>
@@ -698,63 +1366,97 @@
       <div class="faq-container">
 
         <div class="faq-item">
-          <div class="faq-pergunta">Eu preciso ter experiência com feltro ou artesanato?<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>Não. Os moldes foram feitos para quem está começando do zero. A videoaula passo a passo mostra exatamente como montar — qualquer pessoa consegue, mesmo sem nunca ter feito nada de feltro antes.</p></div>
+          <div class="faq-pergunta">Eu preciso ter experiência com feltro ou artesanato?<span class="faq-seta">▼</span>
+          </div>
+          <div class="faq-resposta">
+            <p>Não. Os moldes foram feitos para quem está começando do zero. A videoaula passo a passo mostra exatamente
+              como montar — qualquer pessoa consegue, mesmo sem nunca ter feito nada de feltro antes.</p>
+          </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-pergunta">Eu preciso desenhar ou criar algo?<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>Não. Tudo já vem pronto. Você só imprime, recorta, costura e vende.</p></div>
+          <div class="faq-resposta">
+            <p>Não. Tudo já vem pronto. Você só imprime, recorta, costura e vende.</p>
+          </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-pergunta">Preciso de muitos materiais para começar?<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>Não. Você basicamente vai precisar de feltro, linha, agulha, enchimento e tesoura. O Bônus Guia de Materiais para Iniciantes já lista tudo.</p></div>
+          <div class="faq-resposta">
+            <p>Não. Você basicamente vai precisar de feltro, linha, agulha, enchimento e tesoura. O Bônus Guia de
+              Materiais para Iniciantes já lista tudo.</p>
+          </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-pergunta">Dá pra fazer usando só o celular?<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>Sim. Você acessa tudo pelo celular, imprime os moldes e já pode começar a produzir e vender.</p></div>
+          <div class="faq-resposta">
+            <p>Sim. Você acessa tudo pelo celular, imprime os moldes e já pode começar a produzir e vender.</p>
+          </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-pergunta">Onde eu posso vender esses produtos?<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>Pelo WhatsApp, Instagram, Facebook, vizinhas e grupos locais. Feltro tem procura o ano todo — chaveiros, lembrancinhas, guirlandas, enfeites e datas comemorativas. Você monta, fotografa e já divulga.</p></div>
+          <div class="faq-resposta">
+            <p>Pelo WhatsApp, Instagram, Facebook, vizinhas e grupos locais. Feltro tem procura o ano todo — chaveiros,
+              lembrancinhas, guirlandas, enfeites e datas comemorativas. Você monta, fotografa e já divulga.</p>
+          </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-pergunta">Em quanto tempo eu consigo começar?<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>Logo após a compra você já tem acesso. Imprime o molde, assiste a videoaula e pode começar no mesmo dia.</p></div>
+          <div class="faq-resposta">
+            <p>Logo após a compra você já tem acesso. Imprime o molde, assiste a videoaula e pode começar no mesmo dia.
+            </p>
+          </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-pergunta">Isso realmente funciona?<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>Sim. Mais de 8.195 mulheres já acessaram e estão vendendo com os moldes. E se por qualquer motivo não funcionar pra você, devolvemos 100% do seu dinheiro em até 7 dias.</p></div>
+          <div class="faq-resposta">
+            <p>Sim. Mais de 8.195 mulheres já acessaram e estão vendendo com os moldes. E se por qualquer motivo não
+              funcionar pra você, devolvemos 100% do seu dinheiro em até 7 dias.</p>
+          </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-pergunta">E se eu não souber quanto cobrar?<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>A Calculadora de Precificação Automática resolve isso. Você coloca os valores que gastou e ela te diz o preço exato para cobrar — sem chute, sem medo, sem perder venda.</p></div>
+          <div class="faq-resposta">
+            <p>A Calculadora de Precificação Automática resolve isso. Você coloca os valores que gastou e ela te diz o
+              preço exato para cobrar — sem chute, sem medo, sem perder venda.</p>
+          </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-pergunta">O acesso é por quanto tempo?<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>O acesso é imediato e vitalício. Você pode usar quando quiser, baixar e imprimir sempre que precisar.</p></div>
+          <div class="faq-resposta">
+            <p>O acesso é imediato e vitalício. Você pode usar quando quiser, baixar e imprimir sempre que precisar.</p>
+          </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-pergunta">Funciona em qualquer impressora?<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>Sim! Qualquer impressora doméstica comum serve. Você pode imprimir em casa, numa copiadora ou até pedir para uma gráfica imprimir. O formato dos arquivos é universal.</p></div>
+          <div class="faq-resposta">
+            <p>Sim! Qualquer impressora doméstica comum serve. Você pode imprimir em casa, numa copiadora ou até pedir
+              para uma gráfica imprimir. O formato dos arquivos é universal.</p>
+          </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-pergunta">Como recebo o material?<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>Assim que o pagamento for confirmado, você recebe imediatamente em seu e-mail o acesso. É instantâneo. Não precisa esperar entrega de nada físico.</p></div>
+          <div class="faq-resposta">
+            <p>Assim que o pagamento for confirmado, você recebe imediatamente em seu e-mail o acesso. É instantâneo.
+              Não precisa esperar entrega de nada físico.</p>
+          </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-pergunta">Isso é seguro? Tenho medo de ser golpe.<span class="faq-seta">▼</span></div>
-          <div class="faq-resposta"><p>Totalmente seguro. Você compra por uma plataforma oficial, recebe o acesso na hora e ainda conta com 7 dias de garantia. Se não gostar, devolvemos tudo. O risco é zero pra você.</p></div>
+          <div class="faq-resposta">
+            <p>Totalmente seguro. Você compra por uma plataforma oficial, recebe o acesso na hora e ainda conta com 7
+              dias de garantia. Se não gostar, devolvemos tudo. O risco é zero pra você.</p>
+          </div>
         </div>
 
         <div class="faq-cta">
@@ -769,10 +1471,15 @@
   <section class="garantia">
     <div class="section-inner">
       <div class="garantia-inner">
-        <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (10).png" alt="Garantia 7 Dias" style="width:220px;height:220px;flex-shrink:0;object-fit:contain;display:block;">
+        <img src="assets/ChatGPT Image 11 de jun. de 2026, 20_00_45 (10).png" alt="Garantia 7 Dias"
+          style="width:220px;height:220px;flex-shrink:0;object-fit:contain;display:block;">
         <div class="garantia-texto">
           <h2>GARANTIA TOTAL DE 7 DIAS</h2>
-          <p>Oferecemos uma garantia de satisfação total por 7 dias. Se por qualquer motivo você sentir que o material não foi útil ou que não conseguiu colocar em prática, é só nos avisar e devolvemos 100% do seu dinheiro — sem perguntas, sem burocracia. A sua tranquilidade vem em primeiro lugar. Você compra hoje, testa, e só continua se realmente sentir que está funcionando pra você. O risco é todo nosso. O dinheiro no bolso é todo seu.</p>
+          <p>Oferecemos uma garantia de satisfação total por 7 dias. Se por qualquer motivo você sentir que o material
+            não foi útil ou que não conseguiu colocar em prática, é só nos avisar e devolvemos 100% do seu dinheiro —
+            sem perguntas, sem burocracia. A sua tranquilidade vem em primeiro lugar. Você compra hoje, testa, e só
+            continua se realmente sentir que está funcionando pra você. O risco é todo nosso. O dinheiro no bolso é todo
+            seu.</p>
           <button class="btn-cta btn-pulse" style="animation:none;">COMPRAR SEM RISCO</button>
         </div>
       </div>
@@ -782,41 +1489,42 @@
   <!-- FOOTER -->
   <footer>
     <p>Copyright © 2026 | Todos os direitos reservados.</p>
-    <p>Todos os direitos sobre a obra "+1.000 Moldes de Feltro + Calculadora de Precificação" são reservados ao produto, nos termos da Lei nº 9.610/98 (Lei de Direitos Autorais).</p>
+    <p>Todos os direitos sobre a obra "+1.000 Moldes de Feltro + Calculadora de Precificação" são reservados ao produto,
+      nos termos da Lei nº 9.610/98 (Lei de Direitos Autorais).</p>
   </footer>
 
   <script>
     // Faixa urgência — data dinâmica
     var hoje = new Date();
-    var dia = String(hoje.getDate()).padStart(2,'0');
-    var mes = String(hoje.getMonth()+1).padStart(2,'0');
+    var dia = String(hoje.getDate()).padStart(2, '0');
+    var mes = String(hoje.getMonth() + 1).padStart(2, '0');
     var ano = hoje.getFullYear();
     document.getElementById('data-urgencia').textContent = 'OFERTA VÁLIDA ATÉ ' + dia + '/' + mes + '/' + ano;
 
     // Scroll suave para planos
-    document.querySelectorAll('.btn-cta').forEach(function(btn) {
-      btn.addEventListener('click', function() {
+    document.querySelectorAll('.btn-cta').forEach(function (btn) {
+      btn.addEventListener('click', function () {
         document.getElementById('planos').scrollIntoView({ behavior: 'smooth' });
       });
     });
-    document.querySelectorAll('button').forEach(function(btn) {
+    document.querySelectorAll('button').forEach(function (btn) {
       var t = btn.textContent.trim().toUpperCase();
       if (t.includes('QUERO COMEÇAR') || t.includes('QUERO OS MOLDES') || t.includes('COMPRAR SEM RISCO') || t.includes('QUERO COMEÇAR AGORA')) {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
           document.getElementById('planos').scrollIntoView({ behavior: 'smooth' });
         });
       }
     });
 
     // FAQ accordion
-    document.querySelectorAll('.faq-item').forEach(function(item) {
+    document.querySelectorAll('.faq-item').forEach(function (item) {
       var pergunta = item.querySelector('.faq-pergunta');
       var resposta = item.querySelector('.faq-resposta');
-      var seta     = item.querySelector('.faq-seta');
-      pergunta.addEventListener('click', function() {
+      var seta = item.querySelector('.faq-seta');
+      pergunta.addEventListener('click', function () {
         var aberto = resposta.style.maxHeight;
-        document.querySelectorAll('.faq-resposta').forEach(function(r){ r.style.maxHeight = null; });
-        document.querySelectorAll('.faq-seta').forEach(function(s){ s.style.transform = 'rotate(0deg)'; });
+        document.querySelectorAll('.faq-resposta').forEach(function (r) { r.style.maxHeight = null; });
+        document.querySelectorAll('.faq-seta').forEach(function (s) { s.style.transform = 'rotate(0deg)'; });
         if (!aberto) {
           resposta.style.maxHeight = resposta.scrollHeight + 'px';
           seta.style.transform = 'rotate(180deg)';
@@ -825,7 +1533,7 @@
     });
 
     // Countdown — planos (4 horas, persiste na sessão)
-    (function() {
+    (function () {
       var duration = 4 * 3600;
       var key = 'feltroCountdownEnd';
       var stored = sessionStorage.getItem(key);
@@ -840,11 +1548,11 @@
         endTime = Date.now() + duration * 1000;
         sessionStorage.setItem(key, endTime);
       }
-      function pad(n) { return String(n).padStart(2,'0'); }
+      function pad(n) { return String(n).padStart(2, '0'); }
       function tick() {
         var rem = Math.floor((endTime - Date.now()) / 1000);
         if (rem < 0) rem = 0;
-        document.getElementById('planos-hours').textContent   = pad(Math.floor(rem / 3600));
+        document.getElementById('planos-hours').textContent = pad(Math.floor(rem / 3600));
         document.getElementById('planos-minutes').textContent = pad(Math.floor((rem % 3600) / 60));
         document.getElementById('planos-seconds').textContent = pad(rem % 60);
         if (rem > 0) setTimeout(tick, 1000);
@@ -853,33 +1561,33 @@
     })();
 
     // Notificações de prova social
-    var nomes   = ['Ana','Bruna','Carla','Daniela','Eduarda','Fernanda','Gabriela','Helena','Isabela','Juliana','Larissa','Marcela','Natalia','Olivia','Patricia','Rafaela','Sabrina','Tatiane','Vanessa','Yasmin','Camila','Leticia','Mariana','Renata','Simone'];
-    var cidades = ['São Paulo - SP','Rio de Janeiro - RJ','Belo Horizonte - MG','Salvador - BA','Fortaleza - CE','Curitiba - PR','Manaus - AM','Recife - PE','Porto Alegre - RS','Goiânia - GO','Belém - PA','Maceió - AL','Natal - RN','Teresina - PI','Campo Grande - MS'];
-    var tempos  = ['agora mesmo','há 1 minuto','há 2 minutos','há 3 minutos','há 4 minutos','há 5 minutos','há 8 minutos','há 10 minutos'];
+    var nomes = ['Ana', 'Bruna', 'Carla', 'Daniela', 'Eduarda', 'Fernanda', 'Gabriela', 'Helena', 'Isabela', 'Juliana', 'Larissa', 'Marcela', 'Natalia', 'Olivia', 'Patricia', 'Rafaela', 'Sabrina', 'Tatiane', 'Vanessa', 'Yasmin', 'Camila', 'Leticia', 'Mariana', 'Renata', 'Simone'];
+    var cidades = ['São Paulo - SP', 'Rio de Janeiro - RJ', 'Belo Horizonte - MG', 'Salvador - BA', 'Fortaleza - CE', 'Curitiba - PR', 'Manaus - AM', 'Recife - PE', 'Porto Alegre - RS', 'Goiânia - GO', 'Belém - PA', 'Maceió - AL', 'Natal - RN', 'Teresina - PI', 'Campo Grande - MS'];
+    var tempos = ['agora mesmo', 'há 1 minuto', 'há 2 minutos', 'há 3 minutos', 'há 4 minutos', 'há 5 minutos', 'há 8 minutos', 'há 10 minutos'];
     var ultimoNome = '';
     function notificacaoAleatoria() {
       var nome;
       do { nome = nomes[Math.floor(Math.random() * nomes.length)]; } while (nome === ultimoNome);
       ultimoNome = nome;
       var cidade = cidades[Math.floor(Math.random() * cidades.length)];
-      var tempo  = tempos[Math.floor(Math.random() * tempos.length)];
+      var tempo = tempos[Math.floor(Math.random() * tempos.length)];
       var div = document.createElement('div');
       div.style.cssText = 'position:fixed;top:20px;right:20px;z-index:8000;background:#fff;border-radius:10px;padding:14px 18px;box-shadow:0 4px 20px rgba(0,0,0,0.15);max-width:290px;font-family:Poppins,sans-serif;font-size:13px;border-left:4px solid #22c55e;opacity:0;transform:translateX(40px);transition:opacity 0.4s ease,transform 0.4s ease;';
-      div.innerHTML = '<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><span style="font-size:18px;">✔️</span><strong style="color:#22c55e;">'+nome+'</strong></div><div style="color:#333;">acabou de comprar o <strong>plano completo</strong></div><div style="color:#888;font-size:11px;margin-top:4px;">'+tempo+' • '+cidade+'</div>';
+      div.innerHTML = '<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><span style="font-size:18px;">✔️</span><strong style="color:#22c55e;">' + nome + '</strong></div><div style="color:#333;">acabou de comprar o <strong>plano completo</strong></div><div style="color:#888;font-size:11px;margin-top:4px;">' + tempo + ' • ' + cidade + '</div>';
       document.body.appendChild(div);
-      requestAnimationFrame(function(){ setTimeout(function(){ div.style.opacity='1'; div.style.transform='translateX(0)'; },50); });
-      setTimeout(function(){ div.style.opacity='0'; div.style.transform='translateX(40px)'; setTimeout(function(){ div.remove(); },400); }, 4500);
+      requestAnimationFrame(function () { setTimeout(function () { div.style.opacity = '1'; div.style.transform = 'translateX(0)'; }, 50); });
+      setTimeout(function () { div.style.opacity = '0'; div.style.transform = 'translateX(40px)'; setTimeout(function () { div.remove(); }, 400); }, 4500);
     }
-    setTimeout(function(){
+    setTimeout(function () {
       notificacaoAleatoria();
-      function agendar(){ var i=Math.random()*4000+7000; setTimeout(function(){ notificacaoAleatoria(); agendar(); },i); }
+      function agendar() { var i = Math.random() * 4000 + 7000; setTimeout(function () { notificacaoAleatoria(); agendar(); }, i); }
       agendar();
     }, 5000);
 
     // Upsell popup ao clicar em QUERO O BÁSICO
-    (function() {
+    (function () {
       var UPSELL_PRICE = 'R$18,90';
-      document.getElementById('btn-basico').addEventListener('click', function(e) {
+      document.getElementById('btn-basico').addEventListener('click', function (e) {
         e.preventDefault();
         var overlay = document.createElement('div');
         overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:99999;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.35s ease;padding:16px;box-sizing:border-box;';
@@ -887,10 +1595,10 @@
           '<div id="upsell-box" style="background:#fff;border-radius:16px;padding:28px 24px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.2);position:relative;transform:scale(0.92);transition:transform 0.35s ease;max-height:92vh;overflow-y:auto;box-sizing:border-box;">' +
           '<button id="upsell-close" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:20px;cursor:pointer;color:#999;line-height:1;">✕</button>' +
           '<h2 style="font-size:20px;font-weight:700;color:#2C2C2A;margin:0 0 4px;">Espere! Oferta Especial 🔥</h2>' +
-          '<p style="font-size:14px;color:#555;margin:0 0 16px;">Leve o <strong>Plano Completo</strong> com tudo incluso por apenas <strong style="color:#16a34a;">'+UPSELL_PRICE+'</strong> — só agora!</p>' +
+          '<p style="font-size:14px;color:#555;margin:0 0 16px;">Leve o <strong>Plano Completo</strong> com tudo incluso por apenas <strong style="color:#16a34a;">' + UPSELL_PRICE + '</strong> — só agora!</p>' +
           '<div style="background:#f9f9f9;border-radius:10px;padding:12px 16px;margin-bottom:16px;text-align:center;">' +
           '<span style="text-decoration:line-through;color:#e53e3e;font-size:14px;margin-right:8px;">De R$197,00</span>' +
-          '<span style="font-size:28px;font-weight:800;color:#16a34a;">'+UPSELL_PRICE+'</span></div>' +
+          '<span style="font-size:28px;font-weight:800;color:#16a34a;">' + UPSELL_PRICE + '</span></div>' +
           '<ul style="list-style:none;margin:0 0 20px;padding:0;">' +
           '<li style="display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:13px;color:#333;"><span style="color:#16a34a;font-weight:700;flex-shrink:0;">✅</span><span><strong>+10.000 Moldes</strong> de Feltro Prontos para Imprimir</span></li>' +
           '<li style="display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:13px;color:#333;"><span style="color:#16a34a;font-weight:700;flex-shrink:0;">✅</span><span>Calculadora de Precificação Automática</span></li>' +
@@ -902,24 +1610,27 @@
           '<li style="display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:13px;color:#333;"><span style="color:#F0185A;font-weight:700;flex-shrink:0;">🎁</span><span><strong>Bônus 5:</strong> Etiquetas, Tags e Cartões de Agradecimento</span></li>' +
           '<li style="display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:13px;color:#333;"><span style="color:#F0185A;font-weight:700;flex-shrink:0;">🎁</span><span><strong>Bônus 6:</strong> Calendário de Datas Comemorativas para Artesãs</span></li>' +
           '</ul>' +
-          '<a href="https://pay.lowify.com.br/go.php?offer=nyaok0t" style="display:block;background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;font-weight:700;font-size:14px;border-radius:50px;padding:16px 24px;text-align:center;text-decoration:none;margin-bottom:10px;">SIM! QUERO O COMPLETO POR '+UPSELL_PRICE+'</a>' +
+          '<a href="https://pay.lowify.com.br/go.php?offer=nyaok0t" style="display:block;background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;font-weight:700;font-size:14px;border-radius:50px;padding:16px 24px;text-align:center;text-decoration:none;margin-bottom:10px;">SIM! QUERO O COMPLETO POR ' + UPSELL_PRICE + '</a>' +
           '<a href="https://pay.lowify.com.br/checkout.php?product_id=2iUGom" style="display:block;border:1.5px solid #aaa;color:#888;font-weight:500;font-size:12px;border-radius:50px;padding:11px 24px;text-align:center;text-decoration:none;">Não, prefiro continuar com o Plano Básico</a>' +
           '</div>';
         document.body.appendChild(overlay);
-        requestAnimationFrame(function(){ requestAnimationFrame(function(){
-          overlay.style.opacity='1';
-          document.getElementById('upsell-box').style.transform='scale(1)';
-        }); });
-        function closePopup(){
-          overlay.style.opacity='0';
-          document.getElementById('upsell-box').style.transform='scale(0.92)';
-          setTimeout(function(){ overlay.remove(); },350);
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            overlay.style.opacity = '1';
+            document.getElementById('upsell-box').style.transform = 'scale(1)';
+          });
+        });
+        function closePopup() {
+          overlay.style.opacity = '0';
+          document.getElementById('upsell-box').style.transform = 'scale(0.92)';
+          setTimeout(function () { overlay.remove(); }, 350);
         }
         document.getElementById('upsell-close').addEventListener('click', closePopup);
-        overlay.addEventListener('click', function(e){ if(e.target===overlay) closePopup(); });
+        overlay.addEventListener('click', function (e) { if (e.target === overlay) closePopup(); });
       });
     })();
   </script>
 
 </body>
+
 </html>
